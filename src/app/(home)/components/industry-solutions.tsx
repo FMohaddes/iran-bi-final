@@ -48,8 +48,8 @@ export function IndustrySolutions() {
             id="industry-solutions"
         >
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-primary opacity-20 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-primary-hover opacity-20 rounded-full blur-3xl" />
+                <div className="absolute top-1/4 left-0 w-1/2 h-96 bg-gradient-primary opacity-20 rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 right-0 w-1/2 h-96 bg-gradient-primary-hover opacity-20 rounded-full blur-3xl" />
             </div>
 
             <div className="container mx-auto relative z-10">

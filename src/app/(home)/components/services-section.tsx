@@ -62,7 +62,7 @@ const services = [
 
 export function ServicesSection() {
     return (
-        <section id="services" >
+        <section id="services" className="relative">
             <div >
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

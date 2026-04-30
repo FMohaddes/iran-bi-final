@@ -57,8 +57,8 @@ export function VideoSection() {
   return (
       <section id="videos" className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 left-1/4 w-1/2 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-1/2 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">

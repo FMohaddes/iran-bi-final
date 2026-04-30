@@ -8,7 +8,7 @@ import CustomImage from "@/_components/common/Image";
 
 export function CaseStudiesSection() {
     return (
-        <section  >
+        <section  className="relative">
             <div >
                 <motion.div
                     initial = {{opacity: 0, y: 30}}

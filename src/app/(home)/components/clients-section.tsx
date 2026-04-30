@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import {CaseStudiesSection} from "@/app/(home)/components/case-studies-section";
 
 const clients = [
   { name: "ایران‌خودرو", logo: "🚗" },
@@ -15,8 +16,8 @@ const clients = [
 
 export function ClientsSection() {
   return (
-      <section>
-        <div className="">
+      <section className="relative">
+        <div >
           <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

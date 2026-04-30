@@ -7,9 +7,7 @@ import {Iconify} from "@/_components/iconify";
 
 export function HeroSection() {
     return (
-        <section
-            id="home"
-        >
+        <section id="home" >
             <div className="absolute inset-0">
                 <div className="absolute inset-0" />
 
@@ -51,7 +49,7 @@ export function HeroSection() {
                 <motion.div
                     animate={{ scale: [1, 1.3, 1], rotate: [0, 90, 0], opacity: [0.3, 0.5, 0.3] }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-20"
+                    className="absolute -top-40 -right-40 w-1/2 h-96 bg-gradient-primary rounded-full blur-3xl opacity-20"
                 />
 
                 <motion.div
@@ -63,7 +61,7 @@ export function HeroSection() {
                 <motion.div
                     animate={{ scale: [1, 1.4, 1], x: [0, 100, 0] }}
                     transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-10"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-96 bg-gradient-primary rounded-full blur-3xl opacity-10"
                 />
             </div>
 
@@ -93,7 +91,7 @@ export function HeroSection() {
 
 
                                 <BarChart3 size={16} className="text-orange-400" />
-                                {/*<Iconify faIcon="fa-chart"/>*/}
+                                {/*<Iconify faIcon="fa-chart-line"/>*/}
 
                         </motion.div>
 

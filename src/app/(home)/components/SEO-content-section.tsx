@@ -4,10 +4,7 @@ import { motion } from "motion/react";
 
 export function SEOContentSection() {
   return (
-      <section
-          id="seo-content"
-          className=""
-      >
+      <section id="seo-content" className="relative">
         <div className="">
           <motion.div
               initial={{ opacity: 0, y: 20 }}

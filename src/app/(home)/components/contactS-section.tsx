@@ -95,10 +95,10 @@ export function ContactSection() {
       "w-full px-4 py-3 rounded-xl bg-bg-secondary border border-header-border text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all";
 
   return (
-      <section id="contact">
+      <section id="contact" className="relative">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-primary opacity-20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-primary-hover opacity-20 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-0 w-1/2 h-96 bg-gradient-primary opacity-20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-1/2 h-96 bg-gradient-primary-hover opacity-20 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">

@@ -55,10 +55,10 @@ const processes = [
 
 export function ProcessSection() {
   return (
-      <section id="process" >
+      <section id="process" className="relative">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-0 w-1/2 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-1/2 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">
