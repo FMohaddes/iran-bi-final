@@ -11,13 +11,13 @@ import {WhyUsSection} from "@/app/(home)/components/why-us-section";
 import {BlogSection} from "@/app/(home)/components/blog/blog-section";
 import {ClientsSection} from "@/app/(home)/components/clients-section";
 import {FAQSection} from "@/app/(home)/components/FAQ-section";
-import {ContactSection} from "@/app/(home)/components/contactS-section";
+import {ContactSection} from "@/app/(home)/components/contact-section";
 import {SEOContentSection} from "@/app/(home)/components/SEO-content-section";
 
 export default function HomeView() {
     return (
 
-        <ContainerLayout className = "min-h-screen bg-background text-foreground transition-colors duration-500 flex flex-col gap-24" >
+        <ContainerLayout >
             <HeroSection/>
             <IndustrySolutions/>
             <ServicesSection/>

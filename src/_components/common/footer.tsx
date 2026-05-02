@@ -1,7 +1,7 @@
 "use client";
 
 import {motion} from "motion/react";
-import {Mail, Phone, Send} from "lucide-react";
+import {Iconify} from "@/_components/iconify";
 
 export function Footer() {
     const quickLinks = [
@@ -21,7 +21,7 @@ export function Footer() {
     return (
         <footer
             className = "relative border-t border-header-border bg-section-gradient transition-colors duration-500 overflow-hidden" >
-            <div className = "container mx-auto px-10 py-16" >
+            <div className = "pt-14 pb-8 px-10 " >
                 <div className = "grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12" >
                     <motion.div
                         initial = {{opacity: 0, y: 20}}
@@ -31,7 +31,7 @@ export function Footer() {
                         <div className = "flex items-center gap-3 mb-6" >
                             <div
                                 className = "w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center" >
-                                <span className = "text-white text-xl" >BI</span >
+                                <span className = "text-text-on-brand text-xl" >BI</span >
                             </div >
 
                             <div >
@@ -48,12 +48,12 @@ export function Footer() {
 
                         <div className = "space-y-3 text-sm" >
                             <div className = "flex items-center gap-2 text-text-secondary" >
-                                <Mail size = {16} className = "text-text-accent" />
+                                <Iconify faIcon="fa-envelope" width={16} className="text-text-accent" />
                                 <span className = "text-left" dir = "ltr" >info@iran-bi.com</span >
                             </div >
 
                             <div className = "flex items-center gap-2 text-text-secondary" >
-                                <Phone size = {16} className = "text-text-accent" />
+                                <Iconify faIcon="fa-phone" width={16} className="text-text-accent" />
                                 <span className = "text-left" dir = "ltr" >+98(935)7893655</span >
                             </div >
                         </div >
@@ -116,16 +116,16 @@ export function Footer() {
                         <h3 className = "text-text-primary text-lg mb-6 font-bold" >شبکه‌های اجتماعی</h3 >
 
                         <div className = "flex flex-wrap gap-3" >
-                            {[Mail, Send, Phone].map((Icon, index) => (
+                            {["fa-envelope", "fa-paper-plane", "fa-phone"].map((icon, index) => (
                                 <motion.a
-                                    key = {index}
-                                    href = "#"
-                                    whileHover = {{scale: 1.1, rotate: 5}}
-                                    whileTap = {{scale: 0.95}}
-                                    className = "w-12 h-12 bg-nav-hover-bg border border-header-border rounded-xl flex items-center justify-center text-text-accent hover:bg-gradient-primary hover:text-white transition-all"
+                                    key={index}
+                                    href="#"
+                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="w-12 h-12 bg-nav-hover-bg border border-header-border rounded-xl flex items-center justify-center text-text-accent hover:bg-gradient-primary hover:text-text-on-brand transition-all"
                                 >
-                                    <Icon size = {20} />
-                                </motion.a >
+                                    <Iconify faIcon={icon} width={20} />
+                                </motion.a>
                             ))}
                         </div >
 
@@ -141,7 +141,7 @@ export function Footer() {
 
                                 <button
                                     className = "px-4 py-2 bg-gradient-primary rounded-lg hover:shadow-lg hover:shadow-header-shadow transition-all" >
-                                    <Send size = {16} className = "text-white" />
+                                    <Iconify faIcon="fa-paper-plane" width={16} className="text-text-on-brand" />
                                 </button >
                             </div >
                         </div >

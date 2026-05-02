@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-import { BarChart3, Briefcase, Database, Gauge, TrendingUp, Zap } from "lucide-react";
+import {Iconify} from "@/_components/iconify";
+import { SectionHeader } from "@/_components/common/section-header";
 
 const services = [
     {
-        icon: BarChart3,
+        icon: "fa-chart-line",
         title: "تحلیل داده‌های کسب‌وکار",
         subtitle: "Foundation",
         description: "تبدیل داده‌های خام به بینش‌های قابل اجرا برای تصمیم‌گیری‌های هوشمندانه",
@@ -14,7 +15,7 @@ const services = [
         delay: 0,
     },
     {
-        icon: Gauge,
+        icon: "fa-gauge",
         title: "طراحی داشبورد مدیریتی",
         subtitle: "BI Core",
         description: "داشبوردهای تعاملی و لحظه‌ای برای نظارت بر عملکرد کسب‌وکار",
@@ -23,7 +24,7 @@ const services = [
         delay: 0.1,
     },
     {
-        icon: TrendingUp,
+        icon: "fa-arrow-trend-up",
         title: "پیش‌بینی و مدل‌سازی",
         subtitle: "Predictive",
         description: "مدل‌های پیش‌بینی برای برنامه‌ریزی بهتر و کاهش ریسک",
@@ -32,7 +33,7 @@ const services = [
         delay: 0.2,
     },
     {
-        icon: Zap,
+        icon: "fa-bolt",
         title: "بهینه‌سازی و بهبود فرآیند",
         subtitle: "Optimization",
         description: "شناسایی نقاط ضعف و ارائه راهکارهای بهبود عملکرد",
@@ -41,7 +42,7 @@ const services = [
         delay: 0.3,
     },
     {
-        icon: Database,
+        icon: "fa-database",
         title: "طراحی سیستم‌های داده",
         subtitle: "Data Systems",
         description: "طراحی و پیاده‌سازی زیرساخت‌های داده مقیاس‌پذیر",
@@ -50,7 +51,7 @@ const services = [
         delay: 0.4,
     },
     {
-        icon: Briefcase,
+        icon: "fa-briefcase",
         title: "مشاوره و پیاده‌سازی هوش تجاری",
         subtitle: "Business Focus",
         description: "مشاوره استراتژیک و پیاده‌سازی راهکارهای BI سازمانی",
@@ -62,27 +63,15 @@ const services = [
 
 export function ServicesSection() {
     return (
-        <section id="services" className="relative">
+        <section id="services" className="relative section-padding">
             <div >
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl mb-4 font-bold">
-                        <span className="text-text-primary">راهکارهای</span>
-                        <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}هوش تجاری
-            </span>
-                    </h2>
+                <SectionHeader
+                    title="راهکارهای"
+                    highlight="هوش تجاری"
+                    description="۶ خدمت تخصصی برای تحول دیجیتال کسب‌وکار شما"
+                />
 
-                    <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                        ۶ خدمت تخصصی برای تحول دیجیتال کسب‌وکار شما
-                    </p>
-                </motion.div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
                     {services.map((service) => {
                         const Icon = service.icon;
 
@@ -106,7 +95,12 @@ export function ServicesSection() {
                                         transition={{ duration: 0.6 }}
                                         className={`w-16 h-16 mb-4 ${service.gradientClass} rounded-2xl flex items-center justify-center relative`}
                                     >
-                                        <Icon className="text-white" size={32} />
+                                        <Iconify
+                                            faIcon={service.icon}
+                                            variant="duotoneLight"
+                                            width={32}
+                                            className="text-text-on-brand"
+                                        />
                                     </motion.div>
 
                                     <div className="mb-3">
@@ -136,7 +130,8 @@ export function ServicesSection() {
 
                                     <button className="text-text-accent text-sm hover:text-text-primary flex items-center gap-2 group-hover:gap-3 transition-all">
                                         مشاهده جزئیات
-                                        <span className="text-xs">←</span>
+                                        <Iconify width={12} faIcon="fa-arrow-left" variant="light" />
+
                                     </button>
 
                                     <div

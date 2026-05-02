@@ -2,7 +2,9 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
+import {Iconify} from "@/_components/iconify";
+import {BaseButton} from "@/_components/common/ui/base-button";
+import {SectionHeader} from "@/_components/common/section-header";
 
 const faqs = [
   {
@@ -51,35 +53,21 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-      <section id="faq" className="relative">
+      <section id="faq" className="relative section-padding">
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-1/2 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-1/2 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">
-          <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-nav-hover-bg border border-header-border rounded-full text-text-accent text-sm mb-4">
-              <HelpCircle size={16} />
-              سوالات متداول
-            </div>
+          <SectionHeader
+              icon="fa-circle-question"
+              headerLabel="سوالات متداول"
+              title="سوالاتی که از ما"
+              highlight="می‌پرسید"
+              description="پاسخ به رایج‌ترین سوالات درباره خدمات هوش تجاری و تحلیل داده"
+          />
 
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold">
-              <span className="text-text-primary">سوالاتی که از ما</span>
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}می‌پرسید
-            </span>
-            </h2>
-
-            <p className="text-lg max-w-2xl mx-auto text-text-secondary">
-              پاسخ به رایج‌ترین سوالات درباره خدمات هوش تجاری و تحلیل داده
-            </p>
-          </motion.div>
 
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-4">
@@ -105,12 +93,6 @@ export function FAQSection() {
                       >
                         <div className="p-5 flex items-center justify-between gap-4">
                           <div className="flex items-start gap-3 flex-1">
-                            <Sparkles
-                                size={18}
-                                className={`flex-shrink-0 mt-1 ${
-                                    isOpen ? "text-text-accent" : "text-text-secondary"
-                                }`}
-                            />
 
                             <h3 className="text-sm md:text-base text-right text-text-primary font-semibold">
                               {faq.question}
@@ -122,7 +104,11 @@ export function FAQSection() {
                               transition={{ duration: 0.3 }}
                               className="text-text-accent flex-shrink-0"
                           >
-                            <ChevronDown size={20} />
+                            <Iconify
+                                faIcon="fa-chevron-down"
+                                width={14}
+                                className="text-text-accent"
+                            />
                           </motion.div>
                         </div>
 
@@ -156,15 +142,12 @@ export function FAQSection() {
               سوال دیگری دارید؟ با ما در ارتباط باشید
             </p>
 
-            <motion.a
-                href="/consultation"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-primary text-white rounded-xl hover:shadow-2xl hover:shadow-header-shadow transition-all"
+            <BaseButton
+                variant="cta"
+                leftIcon={<Iconify faIcon="fa-circle-question" width={16} />}
             >
-              <HelpCircle size={20} />
               مشاوره رایگان
-            </motion.a>
+            </BaseButton>
           </motion.div>
         </div>
       </section>

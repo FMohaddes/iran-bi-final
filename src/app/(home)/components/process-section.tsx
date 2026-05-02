@@ -1,20 +1,15 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Search,
-  Database,
-  Lightbulb,
-  Palette,
-  Rocket,
-  CheckCircle2,
-} from "lucide-react";
+
+import {Iconify} from "@/_components/iconify";
+import {SectionHeader} from "@/_components/common/section-header";
 
 const processes = [
   {
     number: "01",
     title: "بررسی و شناخت کسب‌وکار",
-    icon: Search,
+    icon: "fa-magnifying-glass",
     description: "بررسی وضعیت فعلی، اهداف و چالش‌های کسب‌وکار شما",
     output: "تعریف دقیق مسئله و نیازها",
     gradientClass: "bg-gradient-purple-pink",
@@ -22,7 +17,7 @@ const processes = [
   {
     number: "02",
     title: "جمع‌آوری و آماده‌سازی داده‌ها",
-    icon: Database,
+    icon: "fa-database",
     description: "دریافت داده‌ها از سیستم‌های مختلف و آماده‌سازی برای تحلیل",
     output: "داده‌های تمیز و قابل تحلیل",
     gradientClass: "bg-gradient-blue",
@@ -30,7 +25,7 @@ const processes = [
   {
     number: "03",
     title: "تحلیل داده و کشف بینش‌ها",
-    icon: Lightbulb,
+    icon: "fa-lightbulb",
     description: "تحلیل داده‌ها برای شناسایی مشکلات، الگوها و فرصت‌ها",
     output: "گزارش تحلیلی و بینش‌های کاربردی",
     gradientClass: "bg-gradient-pink-orange",
@@ -38,7 +33,7 @@ const processes = [
   {
     number: "04",
     title: "طراحی راهکار و ابزار",
-    icon: Palette,
+    icon: "fa-palette",
     description: "طراحی داشبورد، مدل پیش‌بینی یا سیستم تصمیم‌گیری متناسب با نیاز شما",
     output: "ابزار عملی (Excel / Power BI / مدل تحلیلی)",
     gradientClass: "bg-gradient-yellow-green",
@@ -46,7 +41,7 @@ const processes = [
   {
     number: "05",
     title: "پیاده‌سازی و بهبود مستمر",
-    icon: Rocket,
+    icon: "fa-rocket",
     description: "اجرای راهکار و بهبود مستمر بر اساس داده‌های جدید",
     output: "بهبود واقعی در عملکرد کسب‌وکار",
     gradientClass: "bg-gradient-orange",
@@ -55,35 +50,20 @@ const processes = [
 
 export function ProcessSection() {
   return (
-      <section id="process" className="relative">
+      <section id="process" className="relative section-padding">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-0 w-1/2 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 left-0 w-1/2 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">
-          <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-nav-hover-bg border border-header-border rounded-full text-text-accent text-sm mb-4">
-              <Rocket size={16} />
-              فرآیند همکاری
-            </div>
-
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold">
-              <span className="text-text-primary">مراحل</span>
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}فرآیند کاری ما
-            </span>
-            </h2>
-
-            <p className="text-lg max-w-2xl mx-auto text-text-secondary">
-              ۵ مرحله استاندارد و حرفه‌ای برای تحول دیجیتال کسب‌وکار شما
-            </p>
-          </motion.div>
+          <SectionHeader
+              icon="fa-rocket"
+              headerLabel="فرآیند همکاری"
+              title="مراحل"
+              highlight="فرآیند کاری ما"
+              description="۵ مرحله استاندارد و حرفه‌ای برای تحول دیجیتال کسب‌وکار شما"
+          />
 
           <div className="hidden md:block  mx-auto">
             <div className="relative pt-2">
@@ -108,7 +88,12 @@ export function ProcessSection() {
                               className={`relative w-24 h-24 rounded-full ${process.gradientClass} flex items-center justify-center shadow-2xl`}
                           >
                             <div className={`absolute inset-0 rounded-full ${process.gradientClass} blur-xl opacity-50`} />
-                            <Icon className="text-white relative z-10" size={36} />
+                            <Iconify
+                                faIcon={process.icon}
+                                variant="duotoneLight"
+                                width={36}
+                                className="text-text-on-brand z-10"
+                            />
                           </motion.div>
                         </div>
 
@@ -135,7 +120,13 @@ export function ProcessSection() {
 
                           <div className="relative pt-4 border-t border-header-border">
                             <div className="flex items-start gap-2 justify-center">
-                              <CheckCircle2 size={15} className="text-green-400 mt-1 flex-shrink-0" />
+                              <Iconify
+                                  faIcon="fa-circle-check"
+                                  variant="light"
+                                  width={15}
+                                  className="text-status-success mt-1 flex-shrink-0"
+                              />
+
                               <p className= {`text-sm text-gray-400 leading-7`}>
                                 {process.output}
                               </p>
@@ -172,7 +163,13 @@ export function ProcessSection() {
                               className={`w-20 h-20 rounded-full ${process.gradientClass} flex items-center justify-center shadow-lg flex-shrink-0`}
                           >
                             <div className={`absolute inset-0 rounded-full ${process.gradientClass} blur-xl opacity-50`} />
-                            <Icon className="text-white relative z-10" size={28} />
+                            {/*<Icon className="text-text-on-brand relative z-10" size={28} />*/}
+                            <Iconify
+                                faIcon={process.icon}
+                                variant="duotoneLight"
+                                width={32}
+                                className="text-text-on-brand z-10"
+                            />
                           </motion.div>
                         </div>
 
@@ -199,8 +196,13 @@ export function ProcessSection() {
 
                           <div className="relative pt-3 border-t border-header-border">
                             <div className="flex items-start gap-2">
-                              <CheckCircle2 size={16} className="text-green-400 mt-1 flex-shrink-0" />
-                              <p className="text-sm text-green-400 leading-7">
+                              <Iconify
+                                  faIcon="fa-circle-check"
+                                  variant="light"
+                                  width={16}
+                                  className="text-status-success mt-1 flex-shrink-0"
+                              />
+                              <p className="text-sm text-status-success leading-7">
                                 <strong>خروجی:</strong> {process.output}
                               </p>
                             </div>
@@ -230,9 +232,9 @@ export function ProcessSection() {
                 href="/consultation"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-2xl hover:shadow-header-shadow transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-text-on-brand rounded-xl hover:shadow-2xl hover:shadow-header-shadow transition-all"
             >
-              <Rocket size={20} />
+              <Iconify faIcon="fa-rocket" width={16}  />
               شروع همکاری
             </motion.a>
           </motion.div>

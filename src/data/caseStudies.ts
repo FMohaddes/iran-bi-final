@@ -1,4 +1,3 @@
-import { TrendingUp, Users, DollarSign } from "lucide-react";
 
 export const caseStudiesData = [
   {
@@ -10,8 +9,8 @@ export const caseStudiesData = [
     description: "پیاده‌سازی داشبورد تحلیلی و مانیتورینگ لحظه‌ای خطوط تولید منجر به کاهش ضایعات و افزایش کیفیت محصولات شد.",
     dashboardImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
     results: [
-      { icon: TrendingUp, label: "افزایش بهره‌وری", value: "+۴۵٪" },
-      { icon: DollarSign, label: "کاهش هزینه", value: "۳۰٪" },
+      { icon: "fa-arrow-trend-up", label: "افزایش بهره‌وری", value: "+۴۵٪" },
+      { icon: "fa-dollar-sign", label: "کاهش هزینه", value: "۳۰٪" },
     ],
     challenge: "شرکت صنعتی پارس با چالش‌های متعددی در خطوط تولید خود روبرو بود که عملکرد کلی کارخانه را تحت تأثیر قرار داده بود.",
     challengeDetails: [
@@ -62,8 +61,8 @@ export const caseStudiesData = [
     description: "با استفاده از تحلیل‌های پیشرفته و یادگیری ماشین، فروش ماهانه را با دقت ۹۲٪ پیش‌بینی و موجودی را بهینه کردیم.",
     dashboardImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
     results: [
-      { icon: TrendingUp, label: "دقت پیش‌بینی", value: "۹۲٪" },
-      { icon: Users, label: "رضایت مشتری", value: "+۳۵٪" },
+      { icon: "fa-arrow-trend-up", label: "دقت پیش‌بینی", value: "۹۲٪" },
+      { icon: "fa-users", label: "رضایت مشتری", value: "+۳۵٪" },
     ],
     challenge: "فروشگاه زنجیره‌ای آریا با ۵۰ شعبه در سراسر کشور، با چالش‌های جدی در مدیریت موجودی و پیش‌بینی تقاضا مواجه بود.",
     challengeDetails: [
@@ -114,8 +113,8 @@ export const caseStudiesData = [
     description: "طراحی داشبورد جامع برای مدیران ارشد جهت تصمیم‌گیری سریع‌تر و تحلیل ریسک پرتفوی بانک.",
     dashboardImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
     results: [
-      { icon: TrendingUp, label: "سرعت تصمیم", value: "+۵۰٪" },
-      { icon: DollarSign, label: "کاهش ریسک", value: "۴۰٪" },
+      { icon: "fa-arrow-trend-up", label: "سرعت تصمیم", value: "+۵۰٪" },
+      { icon: "fa-dollar-sign", label: "کاهش ریسک", value: "۴۰٪" },
     ],
     challenge: "بانک اقتصاد نوین با حجم عظیمی از داده‌ها روبرو بود اما سیستم گزارش‌گیری قدیمی مانع از تصمیم‌گیری سریع و دقیق می‌شد.",
     challengeDetails: [

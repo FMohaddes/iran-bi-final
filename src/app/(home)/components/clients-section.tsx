@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import {CaseStudiesSection} from "@/app/(home)/components/case-studies-section";
+import {SectionHeader} from "@/_components/common/section-header";
 
 const clients = [
   { name: "ایران‌خودرو", logo: "🚗" },
@@ -16,20 +16,13 @@ const clients = [
 
 export function ClientsSection() {
   return (
-      <section className="relative">
+      <section className="relative section-padding">
         <div >
-          <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold text-text-primary">
-              مشتریان ما
-            </h2>
-
-            <p className="text-text-secondary">همکاران و سازمان‌ها</p>
-          </motion.div>
+          <SectionHeader
+              title="مشتریان ما"
+              highlight=""
+              description="همکاران و سازمان‌ها"
+          />
 
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
             {clients.map((client, index) => (

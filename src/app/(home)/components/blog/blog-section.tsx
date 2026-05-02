@@ -1,45 +1,31 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowLeft, Calendar, Clock, Star, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { blogPosts, categoryColors } from "@/data/blogData";
 import CustomImage from "@/_components/common/Image";
+import {Iconify} from "@/_components/iconify";
+import {SectionHeader} from "@/_components/common/section-header";
 
 export function BlogSection() {
     const featuredPosts = blogPosts.filter((post) => post.featured);
     const regularPosts = blogPosts.filter((post) => !post.featured);
 
     return (
-        <section id="blog" className="relative">
+        <section id="blog" className="relative section-padding">
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/4 w-1/2 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 right-1/4 w-1/2 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
             </div>
 
             <div className="relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-nav-hover-bg border border-header-border rounded-full text-text-accent text-sm mb-4">
-                        <TrendingUp size={16} />
-                        مقالات و آموزش‌های تخصصی
-                    </div>
-
-                    <h2 className="text-4xl md:text-5xl mb-4 font-bold">
-                        <span className="text-text-primary">وبلاگ ایران</span>
-                        <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}بی‌آی
-            </span>
-                    </h2>
-
-                    <p className="text-text-secondary max-w-2xl mx-auto">
-                        آخرین مقالات، آموزش‌ها و بینش‌های تخصصی در حوزه هوش تجاری و تحلیل داده
-                    </p>
-                </motion.div>
+                <SectionHeader
+                    icon="fa-arrow-trend-up"
+                    headerLabel="مقالات و آموزش‌های تخصصی"
+                    title="وبلاگ ایران"
+                    highlight="بی‌آی"
+                    description="آخرین مقالات، آموزش‌ها و بینش‌های تخصصی در حوزه هوش تجاری و تحلیل داده"
+                />
 
                 <div className="mb-12">
                     <motion.div
@@ -48,7 +34,12 @@ export function BlogSection() {
                         viewport={{ once: true }}
                         className="flex items-center gap-2 mb-6"
                     >
-                        <Star className="text-yellow-400" size={20} fill="currentColor" />
+                        <Iconify
+                            faIcon="fa-star"
+                            variant="solid"
+                            width={20}
+                            className="text-status-warning"
+                        />
                         <h3 className="text-2xl text-text-primary font-bold">مقالات منتخب</h3>
                     </motion.div>
 
@@ -63,9 +54,14 @@ export function BlogSection() {
                                 className="group"
                             >
                                 <div className="relative rounded-2xl overflow-hidden transition-all bg-card-gradient border border-header-border hover:border-card-border-hover hover:shadow-xl hover:shadow-header-shadow">
-                                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 bg-yellow-500/90 backdrop-blur-sm rounded-full">
-                                        <Star size={12} className="text-white" fill="currentColor" />
-                                        <span className="text-white text-xs font-semibold">منتخب</span>
+                                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 bg-status-warning/90 backdrop-blur-sm rounded-full">
+                                        <Iconify
+                                            faIcon="fa-star"
+                                            variant="solid"
+                                            width={10}
+                                            className="text-text-on-brand"
+                                        />
+                                        <span className="text-text-on-brand text-xs font-semibold">منتخب</span>
                                     </div>
 
                                     <div className="relative h-48 overflow-hidden">
@@ -86,7 +82,11 @@ export function BlogSection() {
                       </span>
 
                                             <div className="flex items-center gap-1 text-text-muted text-xs">
-                                                <Calendar size={12} />
+                                                <Iconify
+                                                    faIcon="fa-calendar"
+                                                    width={12}
+                                                    className="text-text-muted"
+                                                />
                                                 <span>{post.date}</span>
                                             </div>
                                         </div>
@@ -101,7 +101,11 @@ export function BlogSection() {
 
                                         <div className="flex items-center justify-between pt-4 border-t border-header-border">
                                             <div className="flex items-center gap-1 text-text-muted text-xs">
-                                                <Clock size={12} />
+                                                <Iconify
+                                                    faIcon="fa-clock"
+                                                    width={12}
+                                                    className="text-text-muted"
+                                                />
                                                 <span>{post.readTime}</span>
                                             </div>
 
@@ -110,7 +114,11 @@ export function BlogSection() {
                                                 className="flex items-center gap-2 text-text-accent text-sm hover:gap-3 transition-all group/btn"
                                             >
                                                 <span>مطالعه</span>
-                                                <ArrowLeft size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                                                <Iconify
+                                                    faIcon="fa-arrow-left"
+                                                    width={12}
+                                                    className="text-text-accent"
+                                                />
                                             </Link>
                                         </div>
                                     </div>
@@ -159,7 +167,11 @@ export function BlogSection() {
                       </span>
 
                                             <div className="flex items-center gap-1 text-text-muted text-xs">
-                                                <Calendar size={12} />
+                                                <Iconify
+                                                    faIcon="fa-calendar"
+                                                    width={12}
+                                                    className="text-text-muted"
+                                                />
                                                 <span>{post.date}</span>
                                             </div>
                                         </div>
@@ -174,7 +186,11 @@ export function BlogSection() {
 
                                         <div className="flex items-center justify-between pt-3 border-t border-header-border">
                                             <div className="flex items-center gap-1 text-text-muted text-xs">
-                                                <Clock size={12} />
+                                                <Iconify
+                                                    faIcon="fa-clock"
+                                                    width={12}
+                                                    className="text-text-muted"
+                                                />
                                                 <span>{post.readTime}</span>
                                             </div>
 
@@ -183,7 +199,11 @@ export function BlogSection() {
                                                 className="flex items-center gap-2 text-text-accent text-sm hover:gap-3 transition-all"
                                             >
                                                 <span>ادامه</span>
-                                                <ArrowLeft size={14} />
+                                                <Iconify
+                                                    faIcon="fa-arrow-left"
+                                                    width={12}
+                                                    className="text-text-accent"
+                                                />
                                             </Link>
                                         </div>
                                     </div>
@@ -201,7 +221,7 @@ export function BlogSection() {
                 >
                     <Link
                         href="/blog"
-                        className="inline-block px-8 py-4 bg-gradient-primary text-white rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all"
+                        className="inline-block px-8 py-4 bg-gradient-primary text-text-on-brand rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all"
                     >
                         مشاهده تمام مقالات
                     </Link>

@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Film, Play, PlayCircle, X } from "lucide-react";
 import { useState } from "react";
+import {Iconify} from "@/_components/iconify";
+import {SectionHeader} from "@/_components/common/section-header";
 
 const videos = [
   {
@@ -55,36 +56,20 @@ export function VideoSection() {
   const selectedVideo = videos.find((video) => video.id === activeVideo);
 
   return (
-      <section id="videos" className="relative overflow-hidden">
+      <section id="videos" className="relative section-padding overflow-hidden ">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/4 w-1/2 h-96 bg-gradient-primary opacity-10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/3 right-1/4 w-1/2 h-96 bg-gradient-primary-hover opacity-10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">
-          <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-nav-hover-bg border border-header-border rounded-full text-text-accent text-sm mb-4">
-              <Film size={16} />
-              ویدیوهای آموزشی و معرفی
-            </div>
-
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold">
-              <span className="text-text-primary">ببینید چطور</span>
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}
-                کار می‌کنیم
-            </span>
-            </h2>
-
-            <p className="text-lg max-w-2xl mx-auto text-text-secondary">
-              نمونه‌هایی از پروژه‌ها و راهکارهای واقعی هوش تجاری
-            </p>
-          </motion.div>
+          <SectionHeader
+              icon="fa-film"
+              headerLabel="ویدیوهای آموزشی و معرفی"
+              title="ببینید چطور"
+              highlight="کار می‌کنیم"
+              description="نمونه‌هایی از پروژه‌ها و راهکارهای واقعی هوش تجاری"
+          />
 
           <div className=" mx-auto">
             <div className="grid lg:grid-cols-3 gap-6 items-stretch">
@@ -98,9 +83,9 @@ export function VideoSection() {
                     <button
                         type="button"
                         onClick={() => setActiveVideo(featuredVideo.id)}
-                        className="group relative w-full h-full min-h-[420px] text-right rounded-2xl overflow-hidden cursor-pointer bg-card-gradient border border-card-border hover:border-card-border-hover transition-all flex flex-col"
+                        className="group relative w-full h-full min-h-96 text-right rounded-2xl overflow-hidden cursor-pointer bg-card-gradient border border-card-border hover:border-card-border-hover transition-all flex flex-col"
                     >
-                      <div className="relative flex-1 min-h-[280px] overflow-hidden">
+                      <div className="relative flex-1 overflow-hidden">
                         <img
                             src={featuredVideo.thumbnail}
                             alt={featuredVideo.title}
@@ -117,12 +102,17 @@ export function VideoSection() {
                           <div className="relative">
                             <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-60 animate-pulse" />
                             <div className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
-                              <Play className="text-purple-600" size={32} fill="currentColor" />
+                              <Iconify
+                                  faIcon="fa-play"
+                                  width={32}
+                                  variant="solid"
+                                  className="text-text-accent"
+                              />
                             </div>
                           </div>
                         </motion.div>
 
-                        <div className="absolute top-4 left-4 px-3 py-1 bg-black/70 backdrop-blur-sm rounded-lg text-white text-sm">
+                        <div className="absolute top-4 left-4 px-3 py-1 bg-black/70 backdrop-blur-sm rounded-lg text-text-on-brand text-sm">
                           {featuredVideo.duration}
                         </div>
                       </div>
@@ -137,7 +127,11 @@ export function VideoSection() {
                         </p>
 
                         <div className="mt-4 flex items-center gap-2 text-text-accent">
-                          <PlayCircle size={20} />
+                          <Iconify
+                              faIcon="fa-circle-play"
+                              width={20}
+                              className="text-text-accent"
+                          />
                           <span className="text-sm">مشاهده ویدیو</span>
                         </div>
                       </div>
@@ -167,10 +161,15 @@ export function VideoSection() {
                           />
 
                           <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play className="text-white" size={24} fill="currentColor" />
+                            <Iconify
+                                faIcon="fa-play"
+                                width={24}
+                                variant="solid"
+                                className="text-text-on-brand"
+                            />
                           </div>
 
-                          <div className="absolute bottom-1 right-1 px-2 py-0.5 bg-black/80 rounded text-white text-xs">
+                          <div className="absolute bottom-1 right-1 px-2 py-0.5 bg-black/80 rounded text-text-on-brand text-xs">
                             {video.duration}
                           </div>
                         </div>
@@ -193,22 +192,6 @@ export function VideoSection() {
             </div>
           </div>
 
-          <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mt-6"
-          >
-            <motion.a
-                href="/consultation"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-2xl hover:shadow-header-shadow transition-all"
-            >
-              <PlayCircle size={20} />
-              درخواست مشاوره رایگان
-            </motion.a>
-          </motion.div>
         </div>
 
         {selectedVideo && (
@@ -229,9 +212,13 @@ export function VideoSection() {
                 <button
                     type="button"
                     onClick={() => setActiveVideo(null)}
-                    className="absolute -top-12 left-0 text-white hover:text-purple-400 transition-colors"
+                    className="absolute -top-12 left-0 text-text-on-brand hover:text-purple-400 transition-colors"
                 >
-                  <X size={32} />
+                  <Iconify
+                      faIcon="fa-xmark"
+                      width={32}
+                      className="text-text-on-brand hover:text-text-accent transition-colors"
+                  />
                 </button>
 
                 <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
@@ -243,7 +230,7 @@ export function VideoSection() {
                   />
                 </div>
 
-                <div className="mt-4 text-white">
+                <div className="mt-4 text-text-on-brand">
                   <h3 className="text-2xl font-bold mb-2">{selectedVideo.title}</h3>
                   <p className="text-gray-300">{selectedVideo.description}</p>
                 </div>

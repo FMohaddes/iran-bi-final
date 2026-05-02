@@ -10,7 +10,8 @@ export default function ContainerLayout({
                                             className = "",
                                         }: ContainerLayoutProps) {
     return (
-        <section className = {`relative w-full h-full mx-auto max-w-screen-2xl py-24 px-10 sm:p-14 lg:p-24
+        <section className = {`relative w-full h-full mx-auto max-w-screen-2xl 
+        min-h-screen bg-background text-foreground transition-colors duration-500 flex flex-col
         ${className}`}
         >
             {children}

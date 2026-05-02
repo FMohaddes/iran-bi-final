@@ -1,19 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import {
-  AlertCircle,
-  Building2,
-  CheckCircle,
-  Clock,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Phone,
-  Send,
-  User,
-} from "lucide-react";
 import { useState } from "react";
+import {Iconify} from "@/_components/iconify";
+import {SectionHeader} from "@/_components/common/section-header";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -39,21 +29,21 @@ export function ContactSection() {
 
   const contactInfo = [
     {
-      icon: Phone,
+      icon: "fa-phone",
       title: "تلفن تماس",
       value: "+98 (935) 789-3655",
       link: "tel:+989357893655",
       gradientClass: "bg-gradient-blue",
     },
     {
-      icon: Mail,
+      icon: "fa-envelope",
       title: "ایمیل",
       value: "info@iran-bi.com",
       link: "mailto:info@iran-bi.com",
       gradientClass: "bg-gradient-purple-pink",
     },
     {
-      icon: MapPin,
+      icon: "fa-location-dot",
       title: "آدرس دفتر",
       value: "تهران، خیابان ولیعصر، پلاک ۱۲۳۴",
       link: "#",
@@ -62,10 +52,10 @@ export function ContactSection() {
   ];
 
   const benefits = [
-    { icon: CheckCircle, text: "مشاوره رایگان و بدون تعهد" },
-    { icon: Clock, text: "پاسخگویی در کمتر از ۲۴ ساعت" },
-    { icon: User, text: "تیم متخصص با ۱۰+ سال تجربه" },
-    { icon: Building2, text: "خدمات سفارشی برای کسب‌وکار شما" },
+    { icon: "fa-circle-check", text: "مشاوره رایگان و بدون تعهد" },
+    { icon: "fa-clock", text: "پاسخگویی در کمتر از ۲۴ ساعت" },
+    { icon: "fa-user", text: "تیم متخصص با ۱۰+ سال تجربه" },
+    { icon: "fa-building", text: "خدمات سفارشی برای کسب‌وکار شما" },
   ];
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -95,37 +85,22 @@ export function ContactSection() {
       "w-full px-4 py-3 rounded-xl bg-bg-secondary border border-header-border text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all";
 
   return (
-      <section id="contact" className="relative">
+      <section id="contact" className="relative section-padding">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-0 w-1/2 h-96 bg-gradient-primary opacity-20 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 left-0 w-1/2 h-96 bg-gradient-primary-hover opacity-20 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10">
-          <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-nav-hover-bg border border-header-border rounded-full text-text-accent text-sm mb-6">
-              <MessageSquare size={16} />
-              تماس با ما
-            </div>
+          <SectionHeader
+              icon="fa-message"
+              headerLabel="تماس با ما"
+              title="مشاوره رایگان"
+              highlight="دریافت کنید"
+              description="تیم متخصص ما آماده است تا در کنار شما باشد و اولین قدم را برای تحول دیجیتال سازمان‌تان بردارید"
+          />
 
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold">
-              <span className="text-text-primary">مشاوره رایگان</span>
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}دریافت کنید
-            </span>
-            </h2>
-
-            <p className="text-lg max-w-2xl mx-auto text-text-secondary">
-              تیم متخصص ما آماده است تا در کنار شما باشد و اولین قدم را برای تحول دیجیتال سازمان‌تان بردارید
-            </p>
-          </motion.div>
-
-          <div className="max-w-7xl mx-auto">
+          <div>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {contactInfo.map((info, index) => (
                   <motion.a
@@ -136,22 +111,23 @@ export function ContactSection() {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ y: -5, scale: 1.02 }}
-                      className="block p-6 rounded-2xl bg-card-gradient border border-header-border hover:border-card-border-hover hover:shadow-xl hover:shadow-header-shadow transition-all"
+                      className="flex gap-4 p-6 rounded-2xl bg-card-glass border border-header-border hover:border-card-border-hover hover:shadow-xl hover:shadow-header-shadow transition-all"
                   >
-                    <div
-                        className={`w-14 h-14 rounded-xl ${info.gradientClass} flex items-center justify-center mb-4`}
-                    >
-                      <info.icon className="text-white" size={24} />
+                    <div className={`w-14 h-14 rounded-xl ${info.gradientClass} flex items-center justify-center`}>
+                      <Iconify faIcon={info.icon} width={24} variant="duotoneLight" className="text-text-on-brand" />
                     </div>
 
-                    <div className="text-sm mb-2 text-text-secondary">{info.title}</div>
+                    <div className="flex flex-col">
+                      <div className="text-sm mb-2 text-text-secondary">{info.title}</div>
 
-                    <div
-                        className="font-semibold text-text-primary"
-                        dir={info.title === "ایمیل" || info.title === "تلفن تماس" ? "ltr" : "rtl"}
-                    >
-                      {info.value}
+                      <div
+                          className="font-semibold text-text-primary"
+                          dir={info.title === "ایمیل" || info.title === "تلفن تماس" ? "ltr" : "rtl"}
+                      >
+                        {info.value}
+                      </div>
                     </div>
+
                   </motion.a>
               ))}
             </div>
@@ -179,9 +155,8 @@ export function ContactSection() {
                             className="flex items-start gap-3"
                         >
                           <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-card-gradient border border-header-border">
-                            <item.icon className="text-text-accent" size={20} />
+                            <Iconify faIcon={item.icon} width={20} className="text-text-accent" />
                           </div>
-
                           <p className="text-sm leading-relaxed mt-2 text-text-primary">
                             {item.text}
                           </p>
@@ -209,7 +184,7 @@ export function ContactSection() {
                   viewport={{ once: true }}
                   className="lg:col-span-2"
               >
-                <div className="rounded-2xl p-8 bg-card-gradient border border-header-border">
+                <div className="rounded-2xl p-8 bg-card-glass border border-header-border">
                   <h3 className="text-2xl mb-2 font-bold text-text-primary">
                     فرم درخواست مشاوره
                   </h3>
@@ -230,9 +205,9 @@ export function ContactSection() {
                               initial={{ scale: 0 }}
                               animate={{ scale: 1 }}
                               transition={{ type: "spring", duration: 0.5 }}
-                              className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                              className="w-20 h-20 bg-status-success rounded-full flex items-center justify-center mx-auto mb-4"
                           >
-                            <CheckCircle className="text-white" size={40} />
+                            <Iconify faIcon="fa-circle-check" width={40} className="text-text-on-brand" />
                           </motion.div>
 
                           <h4 className="text-2xl mb-2 font-bold text-text-primary">
@@ -248,7 +223,7 @@ export function ContactSection() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={() => setSubmitStatus("idle")}
-                              className="mt-6 px-6 py-3 bg-gradient-primary text-white rounded-xl"
+                              className="mt-6 px-6 py-3 bg-gradient-primary text-text-on-brand rounded-xl"
                           >
                             ارسال درخواست جدید
                           </motion.button>
@@ -263,7 +238,8 @@ export function ContactSection() {
                           <div className="grid md:grid-cols-2 gap-6">
                             <div>
                               <label className="text-sm mb-2 text-text-primary flex items-center gap-2">
-                                <User size={16} className="text-text-accent" />
+                                <Iconify faIcon="fa-user" width={16} className="text-text-accent" />
+
                                 نام و نام خانوادگی *
                               </label>
 
@@ -281,7 +257,7 @@ export function ContactSection() {
 
                             <div>
                               <label className="text-sm mb-2 text-text-primary flex items-center gap-2">
-                                <Building2 size={16} className="text-text-accent" />
+                                <Iconify faIcon="fa-building" width={16} className="text-text-accent" />
                                 نام سازمان *
                               </label>
 
@@ -301,7 +277,8 @@ export function ContactSection() {
                           <div className="grid md:grid-cols-2 gap-6">
                             <div>
                               <label className="text-sm mb-2 text-text-primary flex items-center gap-2">
-                                <Mail size={16} className="text-text-accent" />
+                                <Iconify faIcon="fa-envelope" width={16} className="text-text-accent" />
+
                                 ایمیل *
                               </label>
 
@@ -320,7 +297,8 @@ export function ContactSection() {
 
                             <div>
                               <label className="text-sm mb-2 text-text-primary flex items-center gap-2">
-                                <Phone size={16} className="text-text-accent" />
+                                <Iconify faIcon="fa-phone" width={16} className="text-text-accent" />
+
                                 شماره تماس *
                               </label>
 
@@ -362,7 +340,8 @@ export function ContactSection() {
 
                           <div>
                             <label className="text-sm mb-2 text-text-primary flex items-center gap-2">
-                              <MessageSquare size={16} className="text-text-accent" />
+                              <Iconify faIcon="fa-message" width={16} className="text-text-accent" />
+
                               توضیحات پروژه
                             </label>
 
@@ -382,7 +361,7 @@ export function ContactSection() {
                               disabled={isSubmitting}
                               whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                               whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                              className={`w-full px-8 py-4 bg-gradient-primary text-white rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all flex items-center justify-center gap-2 relative overflow-hidden ${
+                              className={`w-full px-8 py-4 bg-gradient-primary text-text-on-brand rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all flex items-center justify-center gap-2 relative overflow-hidden ${
                                   isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                               }`}
                           >
@@ -397,7 +376,8 @@ export function ContactSection() {
                                 </>
                             ) : (
                                 <>
-                                  <Send size={20} />
+                                  <Iconify faIcon="fa-paper-plane" width={20} className="text-text-on-brand" />
+
                                   ارسال درخواست مشاوره
                                 </>
                             )}

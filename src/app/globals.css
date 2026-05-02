@@ -2,6 +2,25 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+@layer components {
+  .section-padding {
+    @apply py-24 px-10;
+    }
+  
+  @media (min-width: 640px) {
+    .section-padding {
+      @apply px-14;
+      }
+    }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      @apply px-24;
+      }
+    }
+  }
+
 /* =========================
    Tailwind Mapping
 ========================= */
@@ -60,6 +79,25 @@
   
   /* ICON */
   --color-icon-theme: var(--icon-theme);
+  
+  /* STATUS */
+  --color-status-success: var(--status-success);
+  --color-status-success-soft: var(--status-success-soft);
+  --color-status-success-border: var(--status-success-border);
+  
+  --color-status-warning: var(--status-warning);
+  --color-status-warning-soft: var(--status-warning-soft);
+  --color-status-warning-border: var(--status-warning-border);
+  
+  --color-status-error: var(--status-error);
+  --color-status-error-soft: var(--status-error-soft);
+  --color-status-error-border: var(--status-error-border);
+  
+  --color-status-info: var(--status-info);
+  --color-status-info-soft: var(--status-info-soft);
+  --color-status-info-border: var(--status-info-border);
+  
+  --color-text-on-brand: var(--text-on-brand);
   }
 
 /* =========================
@@ -124,6 +162,26 @@
   /* BASE */
   --background: #0f0b1f;
   --foreground: #f9fafb;
+  
+  /* STATUS */
+  --status-success: #22c55e;
+  --status-success-soft: rgba(34, 197, 94, 0.14);
+  --status-success-border: rgba(34, 197, 94, 0.35);
+  
+  --status-warning: #facc15;
+  --status-warning-soft: rgba(250, 204, 21, 0.14);
+  --status-warning-border: rgba(250, 204, 21, 0.35);
+  
+  --status-error: #f87171;
+  --status-error-soft: rgba(248, 113, 113, 0.14);
+  --status-error-border: rgba(248, 113, 113, 0.35);
+  
+  --status-info: #38bdf8;
+  --status-info-soft: rgba(56, 189, 248, 0.14);
+  --status-info-border: rgba(56, 189, 248, 0.35);
+  
+  --text-on-brand: #ffffff;
+  
   }
 
 /* =========================
@@ -187,6 +245,25 @@
   /* BASE */
   --background: #ffffff;
   --foreground: #111827;
+  
+  /* STATUS */
+  --status-success: #16a34a;
+  --status-success-soft: rgba(22, 163, 74, 0.12);
+  --status-success-border: rgba(22, 163, 74, 0.3);
+  
+  --status-warning: #d97706;
+  --status-warning-soft: rgba(217, 119, 6, 0.12);
+  --status-warning-border: rgba(217, 119, 6, 0.3);
+  
+  --status-error: #dc2626;
+  --status-error-soft: rgba(220, 38, 38, 0.12);
+  --status-error-border: rgba(220, 38, 38, 0.3);
+  
+  --status-info: #0284c7;
+  --status-info-soft: rgba(2, 132, 199, 0.12);
+  --status-info-border: rgba(2, 132, 199, 0.3);
+  
+  --text-on-brand: #ffffff;
   }
 
 /* =========================

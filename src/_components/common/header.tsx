@@ -2,10 +2,11 @@
 
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import Logo from "@/assets/logo.svg";
 import useThemeTailwind from "@/hooks/use-theme-tailwind";
 import Link from "next/link";
+import { Iconify } from "../iconify";
+import {BaseButton} from "@/_components/common/ui/base-button";
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -49,8 +50,8 @@ export function Header() {
         { label: "راهکار", hasDropdown: true, menu: solutionsMenu },
         { label: "خدمات", hasDropdown: true, menu: servicesMenu },
         { label: "نمونه کارها", href: "/portfolio" },
-        { label: "بلاگ", href: "#blog" },
-        { label: "مقالات", href: "/blog" },
+        { label: "مشاوره", href: "/consultation" },
+        { label: "بلاگ", href: "/blog" },
         { label: "درباره ما", href: "/about" },
     ];
 
@@ -75,7 +76,7 @@ export function Header() {
                     : "bg-transparent"
             }`}
         >
-            <div className="container mx-auto px-4 py-2">
+            <div className="container mx-auto px-10 py-2">
                 <div className="flex items-center justify-between ">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -109,11 +110,10 @@ export function Header() {
                                         >
                                             {item.label}
 
-                                            <ChevronDown
-                                                size={16}
-                                                className={`transition-transform ${
-                                                    openDropdown === item.label ? "rotate-180" : ""
-                                                }`}
+                                            <Iconify
+                                                faIcon="fa-chevron-down"
+                                                width={12}
+                                                className={`transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}
                                             />
 
                                             <motion.div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary hover:bg-gradient-primary-hover origin-left scale-x-0 group-hover:scale-x-100 transition-transform" />
@@ -181,7 +181,9 @@ export function Header() {
                                 transition={{ duration: 0.3 }}
                                 className="absolute inset-0 flex items-center justify-center"
                             >
-                                <Moon size={20} className="text-purple-400" />
+                                {/*<Moon size={20} className="text-purple-400" />*/}
+                                <Iconify width={18} faIcon="fa-moon" variant="light" className="text-text-accent" />
+
                             </motion.div>
 
                             <motion.div
@@ -193,11 +195,12 @@ export function Header() {
                                 transition={{ duration: 0.3 }}
                                 className="absolute inset-0 flex items-center justify-center"
                             >
-                                <Sun size={20} className="text-yellow-400" />
+                                <Iconify width={18} faIcon="fa-sun" variant="light" className="text-text-accent" />
                             </motion.div>
 
                             <div className="opacity-0">
-                                <Sun size={20} />
+                                <Iconify width={18} faIcon="fa-sun" variant="light" className="text-text-accent" />
+
                             </div>
                         </motion.button>
 
@@ -205,10 +208,10 @@ export function Header() {
                             href="/consultation"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-6 py-3 bg-gradient-primary hover:bg-gradient-primary-hover text-white rounded-xl hover:shadow-xl hover:shadow-purple-500/50 transition-all relative overflow-hidden group"
+                            className="px-6 py-3 bg-gradient-primary hover:bg-gradient-primary-hover text-text-on-brand rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all relative overflow-hidden group"
                         >
                             <span className="relative z-10">مشاوره رایگان</span>
-                            <motion.div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <motion.div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                         </motion.a>
                     </div>
 
@@ -218,14 +221,22 @@ export function Header() {
                             onClick={() => setThemeChange(theme === "dark" ? "light" : "dark")}
                             className="p-2 hover:bg-nav-hover-bg-strong rounded-lg transition-colors text-icon-theme"
                         >
-                            {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+                            {theme === "dark" ? (
+                                <Iconify faIcon="fa-sun" width={20} className="text-text-accent" />
+                            ) : (
+                                <Iconify faIcon="fa-moon" width={20} className="text-text-accent" />
+                            )}
                         </motion.button>
 
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 hover:bg-nav-hover-bg-strong rounded-lg transition-colors text-icon-theme"
                         >
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isOpen ? (
+                                <Iconify faIcon="fa-xmark" width={20} className="text-text-accent" />
+                            ) : (
+                                <Iconify faIcon="fa-bars" width={20} className="text-text-accent" />
+                            )}
                         </button>
                     </div>
                 </div>
@@ -252,8 +263,10 @@ export function Header() {
                                     >
                                         {item.label}
 
-                                        <ChevronDown
-                                            size={16}
+
+                                        <Iconify
+                                            faIcon="fa-chevron-down"
+                                            width={16}
                                             className={`transition-transform ${
                                                 openDropdown === item.label ? "rotate-180" : ""
                                             }`}
@@ -290,12 +303,9 @@ export function Header() {
                         </div>
                     ))}
 
-                    <a
-                        href="/consultation"
-                        className="block w-full bg-gradient-primary hover:bg-gradient-primary-hover text-white rounded-xl mt-4 text-center"
-                    >
+                    <BaseButton href="/consultation">
                         مشاوره رایگان
-                    </a>
+                    </BaseButton>
                 </div>
             </motion.div>
         </motion.header>

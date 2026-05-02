@@ -1,36 +1,37 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Award, HeadphonesIcon, Shield, Target, Users, Zap } from "lucide-react";
+import {Iconify} from "@/_components/iconify";
+import { SectionHeader } from "@/_components/common/section-header";
 
 const benefits = [
   {
-    icon: Shield,
+    icon: "fa-shield-halved",
     title: "امنیت و قابلیت اطمینان",
     description: "پروتکل‌های امنیتی پیشرفته و رعایت استانداردهای بین‌المللی",
   },
   {
-    icon: Zap,
+    icon: "fa-bolt",
     title: "سرعت و کارایی",
     description: "داشبوردهای با عملکرد بالا و پاسخ‌دهی لحظه‌ای",
   },
   {
-    icon: Users,
+    icon: "fa-users",
     title: "تیم متخصص",
     description: "کار با متخصصان با تجربه در حوزه BI و Data Science",
   },
   {
-    icon: HeadphonesIcon,
+    icon: "fa-headphones",
     title: "پشتیبانی ۲۴/۷",
     description: "پشتیبانی فنی مستمر و آموزش کاربران",
   },
   {
-    icon: Award,
+    icon: "fa-award",
     title: "کیفیت تضمین شده",
     description: "استفاده از بهترین روش‌ها و ابزارهای روز دنیا",
   },
   {
-    icon: Target,
+    icon: "fa-bullseye",
     title: "راهکار سفارشی",
     description: "طراحی متناسب با نیازهای واقعی کسب‌وکار شما",
   },
@@ -38,7 +39,7 @@ const benefits = [
 
 export function WhyUsSection() {
   return (
-      <section className="relative py-4 overflow-hidden ">
+      <section className="relative overflow-hidden section-padding bg-card-gradient">
         <div className="absolute inset-0 opacity-5">
           <div
               className="absolute inset-0"
@@ -50,20 +51,11 @@ export function WhyUsSection() {
         </div>
 
         <div className="relative z-10">
-          <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold text-text-primary">
-              چرا ایران بی‌آی؟
-            </h2>
-
-            <p className="text-lg max-w-2xl mx-auto text-text-secondary">
-              مزایای همکاری با ما برای تحول دیجیتال سازمان شما
-            </p>
-          </motion.div>
+          <SectionHeader
+              title="چرا ایران بی‌آی؟"
+              highlight=""
+              description="مزایای همکاری با ما برای تحول دیجیتال سازمان شما"
+          />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => {
@@ -86,7 +78,13 @@ export function WhyUsSection() {
                             transition={{ duration: 0.6 }}
                             className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-header-shadow transition-all"
                         >
-                          <Icon className="text-white" size={28} />
+                          <Iconify
+                              faIcon={benefit.icon}
+                              variant="duotoneLight"
+                              width={28}
+                              className="text-text-on-brand"
+                          />
+
                         </motion.div>
 
                         <div className="flex-1">

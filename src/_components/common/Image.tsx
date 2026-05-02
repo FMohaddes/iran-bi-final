@@ -134,7 +134,7 @@ function ErrorComponent({
                             className = "",
                         }: ErrorComponentProps) {
     return (
-        <div className="flex opacity-80 justify-center items-center">
+        <div className="flex opacity-80 justify-center items-center h-full">
             <img
                 src={ERROR_IMG_SRC}
                 alt={alt}

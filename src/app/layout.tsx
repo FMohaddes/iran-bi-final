@@ -39,8 +39,14 @@ export default async function RootLayout({
         >
             <head >
                 <link rel = "stylesheet" href = "/lib/web/css/fontawesome.css" />
-                <link rel = "stylesheet" href = "/lib/web/css/duotone.css" />
-                <link rel = "stylesheet" href = "/lib/web/css/solid.css" />
+                <link rel="stylesheet" href="/lib/web/css/solid.css" />
+                <link rel="stylesheet" href="/lib/web/css/regular.css" />
+                <link rel="stylesheet" href="/lib/web/css/light.css" />
+
+                <link rel="stylesheet" href="/lib/web/css/duotone.css" />
+                <link rel="stylesheet" href="/lib/web/css/duotone-light.css" />
+
+                <link rel="stylesheet" href="/lib/web/css/brands.css" />
 
             </head >
             <body className="leading-6 text-dark fill-gray100 relative">

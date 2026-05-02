@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "motion/react";
-import { DollarSign, Factory, Package, TrendingUp } from "lucide-react";
+import {motion} from "motion/react";
+import {Iconify} from "@/_components/iconify";
+import {SectionHeader} from "@/_components/common/section-header";
 
 const industrySolutions = [
     {
-        icon: Factory,
+        icon: "fa-industry",
         title: "راهکار تولید",
         subtitle: "Production Intelligence",
         description:
@@ -14,7 +15,7 @@ const industrySolutions = [
         features: ["مانیتورینگ خطوط تولید", "کنترل کیفیت محصول", "کاهش ضایعات", "افزایش راندمان"],
     },
     {
-        icon: DollarSign,
+        icon: "fa-dollar-sign",
         title: "راهکار مالی",
         subtitle: "Financial Analytics",
         description:
@@ -23,7 +24,7 @@ const industrySolutions = [
         features: ["تحلیل سودآوری", "پیش‌بینی نقدینگی", "کنترل هزینه‌ها", "گزارش‌های مالی"],
     },
     {
-        icon: TrendingUp,
+        icon: "fa-arrow-trend-up",
         title: "راهکار فروش",
         subtitle: "Sales Analytics",
         description:
@@ -32,7 +33,7 @@ const industrySolutions = [
         features: ["تحلیل روند فروش", "شناسایی مشتریان کلیدی", "پیش‌بینی فروش", "عملکرد فروشندگان"],
     },
     {
-        icon: Package,
+        icon: "fa-box",
         title: "راهکار انبار و لجستیک",
         subtitle: "Warehouse & Logistics",
         description:
@@ -44,43 +45,20 @@ const industrySolutions = [
 
 export function IndustrySolutions() {
     return (
-        <section
-            id="industry-solutions"
-        >
+        <section id="industry-solutions" className="relative section-padding">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 left-0 w-1/2 h-96 bg-gradient-primary opacity-20 rounded-full blur-3xl" />
                 <div className="absolute bottom-1/4 right-0 w-1/2 h-96 bg-gradient-primary-hover opacity-20 rounded-full blur-3xl" />
             </div>
 
             <div className="container mx-auto relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-nav-hover-bg border border-header-border rounded-full text-text-accent text-sm mb-6"
-                    >
-                        <Factory size={16} />
-                        راهکارهای صنعتی
-                    </motion.div>
-
-                    <h2 className="text-4xl md:text-5xl mb-6 font-bold">
-                        <span className="text-text-primary">۴ راهکار اصلی</span>
-                        <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {" "}
-                            برای صنایع
-            </span>
-                    </h2>
-
-                    <p className="text-lg max-w-3xl mx-auto text-text-secondary">
-                        راهکارهای هوش تجاری تخصصی برای تولید، مالی، فروش، و انبارداری
-                    </p>
-                </motion.div>
+                <SectionHeader
+                    icon="fa-industry"
+                    headerLabel="راهکارهای صنعتی"
+                    title="۴ راهکار اصلی"
+                    highlight="برای صنایع"
+                    description="راهکارهای هوش تجاری تخصصی برای تولید، مالی، فروش، و انبارداری"
+                />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
                     {industrySolutions.map((solution, index) => (
@@ -110,7 +88,14 @@ export function IndustrySolutions() {
                                         transition={{ type: "spring", stiffness: 300 }}
                                         className={`w-20 h-20 rounded-2xl ${solution.gradientClass} flex items-center justify-center group-hover:shadow-2xl transition-all relative z-10`}
                                     >
-                                        <solution.icon className="text-white" size={40} />
+                                        {/*<solution.icon className="text-text-on-brand" size={40} />*/}
+
+                                        <Iconify
+                                            faIcon={solution.icon}
+                                            variant="duotone"
+                                            width={40}
+                                            className="text-text-on-brand"
+                                        />
                                     </motion.div>
                                 </div>
 
@@ -180,7 +165,7 @@ export function IndustrySolutions() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mt-16"
+                    className="text-center mt-10"
                 >
                     <div className="inline-block p-8 rounded-2xl bg-nav-hover-bg border border-header-border">
                         <h3 className="text-2xl mb-3 font-semibold text-text-primary">
@@ -196,7 +181,7 @@ export function IndustrySolutions() {
                             href="/consultation"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-block px-6 py-3 bg-gradient-primary text-white rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all font-semibold"
+                            className="inline-block px-6 py-3 bg-gradient-primary text-text-on-brand rounded-xl hover:shadow-xl hover:shadow-header-shadow transition-all font-semibold"
                         >
                             درخواست مشاوره رایگان
                         </motion.a>
